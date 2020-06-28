@@ -15,3 +15,6 @@ Info :
 https://github.com/lensapp/lens/issues/49
 
 https://github.com/terraform-providers/terraform-provider-aws/tree/master/examples
+
+https://github.com/dennyzhang/cheatsheet-kubernetes-A4
+

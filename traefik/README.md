@@ -31,7 +31,7 @@ kubectl create -f traefik/
 ## Check my NS and Deployemennt 
 
 ```sh
-kubectl get all -n traefik 
+kubectl get all -n traefik
 ```
 
 ## details of my pods status and events : 
@@ -45,6 +45,12 @@ kubectl describe po 'pod_name' -n traefik
 ```sh
 kubectl get po -n traefik -o wide
 ```
+
+## Get Logs from my pods : 
+
+```
+kubectl logs pod_name
+``` 
 
 _PI_ :
 

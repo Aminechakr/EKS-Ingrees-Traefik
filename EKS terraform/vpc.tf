@@ -20,7 +20,7 @@ resource "aws_subnet" "demo" {
 
   availability_zone       = data.aws_availability_zones.available.names[count.index]
   cidr_block              = "10.0.${count.index}.0/24"
-  map_public_ip_on_launch = true
+  map_private_ip_on_launch = true
   vpc_id                  = aws_vpc.demo.id
 
   tags = map(

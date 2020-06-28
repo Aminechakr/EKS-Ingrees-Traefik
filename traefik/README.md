@@ -56,3 +56,10 @@ _PI_ :
 
 _kubens binary to switch in namespaces cluster
 kubectx binary to switch in context cluster _
+
+ref : 
+
+https://github.com/rchidana/k8s-traefik
+
+https://dev.to/aurelievache/deploying-a-kubernetes-cluster-aws-eks-an-api-gateway-secured-by-mtls-with-terraform-external-dns-traefik-part-2-14oj
+

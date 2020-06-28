@@ -17,7 +17,7 @@ spec:
       serviceAccountName: traefik-ingress-controller
       containers:
         - name: traefik
-          image: traefik:v2.0
+          image: 231453881031.dkr.ecr.us-west-2.amazonaws.com/traefik-ingress:2.2
           args:
             - --api.insecure
             - --accesslog
@@ -25,9 +25,6 @@ spec:
             - --entrypoints.websecure.Address=:4443
             - --providers.kubernetescrd
             - --certificatesresolvers.myresolver.acme.tlschallenge
-            - --certificatesresolvers.myresolver.acme.email=foo@you.com
-            - --certificatesresolvers.myresolver.acme.storage=acme.json
-            - --certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
           ports:
             - name: web
               containerPort: 8000

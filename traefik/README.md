@@ -2,25 +2,51 @@
 
 
 
-1 . change my image name 
+
+### Get Kubeconfig info from my cluster
+
+```sh
+aws eks --region region update-kubeconfig --name cluster_name
+```
+
+### Put my Kubconfig in a config file
+
+```sh
+kubectl get pods --kubeconfig ./.kube/config
+```
+
 
 ## Create NameSpace Traefik
-2. kubectl create ns traefik
+
+```sh
+ kubectl create ns traefik
+```
 
 ## Manifest Ingress Controller  
-3. kubectl create -f traefik/
 
+```sh
+kubectl create -f traefik/
+```
 
 ## Check my NS and Deployemennt 
-4. kubectl get all -n traefik 
+
+```sh
+kubectl get all -n traefik 
+```
 
 ## details of my pods status and events : 
-5. kubectl describe po 'pod_name' -n traefik 
+
+```sh
+kubectl describe po 'pod_name' -n traefik 
+```
 
 ## Get node where my pod is running: 
-6. kubectl get po -n traefik -o wide
 
+```sh
+kubectl get po -n traefik -o wide
+```
 
+_PI_ :
 
-kubens binary to switch in namespaces cluster
-kubectx binary to switch in context cluster 
+_kubens binary to switch in namespaces cluster
+kubectx binary to switch in context cluster _

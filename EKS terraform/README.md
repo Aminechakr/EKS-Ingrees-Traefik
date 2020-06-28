@@ -10,6 +10,8 @@ NOTE: This full configuration utilizes the [Terraform http provider](https://www
 
 aws-iam-authenticator and kubectl binary from AWS, to manage your EKS.
 
+Info : 
+
 https://github.com/lensapp/lens/issues/49
 
-
+https://github.com/terraform-providers/terraform-provider-aws/tree/master/examples

@@ -44,7 +44,7 @@ resource "aws_eks_node_group" "demo" {
   node_role_arn   = aws_iam_role.demo-node.arn
   subnet_ids      = ["subnet-018b08eeb41c9fb8b", "subnet-02f3804e9d78a9b34"] # = aws_subnet.demo[*].id
   instance_types  = ["t3.medium"]
-  ami_type        = ["AL2_x86_64"]
+#  ami_type        = "AL2_x86_64"
 # Node_encryption = @TODO 
 
   scaling_config {

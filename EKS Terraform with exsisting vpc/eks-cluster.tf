@@ -37,7 +37,7 @@ resource "aws_iam_role_policy_attachment" "demo-cluster-AmazonEKSServicePolicy" 
 resource "aws_security_group" "demo-cluster" {
   name        = "terraform-eks-demo-cluster"
   description = "Cluster communication with worker nodes"
-  vpc_id      = "${aws_vpc.main.id}" # "vpc-02ed9faedd87bd655" # = aws_vpc.demo.id
+  vpc_id      = vpc-02ed9faedd87bd655 # = aws_vpc.demo.id
 
   egress {
     from_port   = 0
@@ -74,7 +74,10 @@ resource "aws_eks_cluster" "demo" {
 
   vpc_config {
     security_group_ids = [aws_security_group.demo-cluster.id]
-    subnet_ids         = ["subnet-018b08eeb41c9fb8b", "subnet-02f3804e9d78a9b34"] # = aws_subnet.demo[*].id
+    subnet_ids         = [
+      "subnet-018b08eeb41c9fb8b",
+      "subnet-02f3804e9d78a9b34"
+      ] # = aws_subnet.demo[*].id
   }
 
   depends_on = [

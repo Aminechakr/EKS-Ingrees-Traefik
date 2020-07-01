@@ -40,11 +40,9 @@ resource "aws_iam_role_policy_attachment" "demo-cluster-AmazonEKSServicePolicy" 
 #
 #}
 
-#vpc_config {
-#    vpc_id     = ["vpc-02ed9faedd87bd655"]
-#
-#    subnet_ids = ["subnet-018b08eeb41c9fb8b","subnet-02f3804e9d78a9b34"]
-#  }
+vpc_config {
+    vpc_id     = var.vpc_id
+  }
 
 
 resource "aws_security_group" "demo-cluster" {

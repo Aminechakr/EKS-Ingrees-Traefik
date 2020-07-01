@@ -34,10 +34,18 @@ resource "aws_iam_role_policy_attachment" "demo-cluster-AmazonEKSServicePolicy" 
   role       = aws_iam_role.demo-cluster.name
 }
 
+resource "aws_vpc" "test" {
+
+  id         = "vpc-02ed9faedd87bd655"
+
+}
+
+
 resource "aws_security_group" "demo-cluster" {
   name        = "terraform-eks-demo-cluster"
   description = "Cluster communication with worker nodes"
-  vpc_id      = vpc-02ed9faedd87bd655 # = aws_vpc.demo.id
+  vpc_id      = aws_vpc.test.id      # = aws_vpc.demo.id
+
 
   egress {
     from_port   = 0

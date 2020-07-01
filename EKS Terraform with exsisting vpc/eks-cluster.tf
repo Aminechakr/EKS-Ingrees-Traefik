@@ -35,8 +35,8 @@ resource "aws_iam_role_policy_attachment" "demo-cluster-AmazonEKSServicePolicy" 
 }
 
 resource "aws_vpc" "test" {
-
-  id         = "vpc-02ed9faedd87bd655"
+  cidr_block  = "172.31.0.0/16"
+ # id         = "vpc-02ed9faedd87bd655"
 
 }
 
@@ -44,7 +44,7 @@ resource "aws_vpc" "test" {
 resource "aws_security_group" "demo-cluster" {
   name        = "terraform-eks-demo-cluster"
   description = "Cluster communication with worker nodes"
-  vpc_id      = aws_vpc.test.id      # = aws_vpc.demo.id
+  vpc_id      = aws_vpc.test.id     # = aws_vpc.demo.id
 
 
   egress {

@@ -34,17 +34,23 @@ resource "aws_iam_role_policy_attachment" "demo-cluster-AmazonEKSServicePolicy" 
   role       = aws_iam_role.demo-cluster.name
 }
 
-resource "aws_vpc" "test" {
-  cidr_block  = "172.31.0.0/16"
- # id         = "vpc-02ed9faedd87bd655"
+#resource "aws_vpc" "test" {
+#  cidr_block  = "172.31.0.0/16"
+#  id          = "vpc-02ed9faedd87bd655"
+#
+#}
 
-}
+#vpc_config {
+#    vpc_id     = ["vpc-02ed9faedd87bd655"]
+#
+#    subnet_ids = ["subnet-018b08eeb41c9fb8b","subnet-02f3804e9d78a9b34"]
+#  }
 
 
 resource "aws_security_group" "demo-cluster" {
   name        = "terraform-eks-demo-cluster"
   description = "Cluster communication with worker nodes"
-  vpc_id      = aws_vpc.test.id     # = aws_vpc.demo.id
+  vpc_id      = var.vpc_id     # = aws_vpc.demo.id
 
 
   egress {
@@ -82,10 +88,8 @@ resource "aws_eks_cluster" "demo" {
 
   vpc_config {
     security_group_ids = [aws_security_group.demo-cluster.id]
-    subnet_ids         = [
-      "subnet-018b08eeb41c9fb8b",
-      "subnet-02f3804e9d78a9b34"
-      ] # = aws_subnet.demo[*].id
+    subnet_ids         = var.subnet_a, var.subnet_b
+     # = aws_subnet.demo[*].id
   }
 
   depends_on = [
